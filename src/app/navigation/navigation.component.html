@@ -1,0 +1,63 @@
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+    *ngIf="isHandset$ | async">
+    <mat-toolbar color="primary">英雄指南</mat-toolbar>
+    <div class="component-viewer-nav">
+      <nav class="nav-item">
+        <button class="nav-content-btn">首页
+          <mat-icon class="rotating-icon"
+                    role="img" svgicon="keyboard_arrow_right" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+            </svg>
+          </mat-icon>
+        </button>
+      </nav>
+      <nav class="nav-item">
+        <button class="nav-content-btn" (click)="selectChange()">资料库
+          <mat-icon class="rotating-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"
+                    [class]="select ? 'mat-icon rotating-icon expanded' : 'mat-icon rotating-icon collapsed'">
+            <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+            </svg>
+          </mat-icon>
+        </button>
+        <mat-nav-list class="nav-content-list"
+                      [class]="select ? 'mat-nav-list nav-content-list expanded' : 'mat-nav-list nav-content-list collapsed'">
+          <a mat-list-item href="/英雄资料"> 英雄资料 </a>
+          <a mat-list-item href="/武器资料"> 武器资料 </a>
+        </mat-nav-list>
+      </nav>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>英雄指南</span>
+      <div *ngIf="!(isHandset$ | async)" class="toolbar-button">
+        <button mat-button routerLink="/首页">首页</button>
+        <button mat-button routerLink="/资料库">资料库</button>
+      </div>
+      <div class="flex-spacer"></div>
+      <app-theme-picker></app-theme-picker>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

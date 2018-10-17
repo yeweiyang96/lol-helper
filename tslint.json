@@ -58,7 +58,7 @@
     "no-duplicate-super": true,
     "no-empty": false,
     "no-empty-interface": true,
-    "no-eval": true,
+    "no-eval": false, //不用这招，不行啊，我笨，默认值：true
     "no-inferrable-types": [
       true,
       "ignore-params"
