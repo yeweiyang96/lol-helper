@@ -2,7 +2,7 @@
 <mat-grid-list [cols]="cols" rowHeight="1:2" class="mgl">
   <mat-grid-tile *ngFor="let hero of heroes">
     <img
-      src="https://ddragon.leagueoflegends.com/cdn/8.20.1/img/champion/{{hero.image.full}}"
+      src="http://localhost:4200/lol/8.20.1/img/champion/{{hero.image.full}}"
       alt="Photo of {{hero.name}}" class="hero-icon" routerLink="/英雄资料/{{hero.id}}">
     <mat-grid-tile-footer class="mgtf">
       <span class="mgtf-s" routerLink="/英雄资料/{{hero.id}}">{{hero.name}}</span>

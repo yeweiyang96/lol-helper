@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ChampionsService {
-  private heroesUrl = 'https://ddragon.leagueoflegends.com/cdn/8.20.1/data/zh_CN';  // URL to web api
+  private heroesUrl = 'http://localhost:4200/lol/8.20.1/data/zh_CN';  // URL to web api
 
   constructor(
     private http: HttpClient,

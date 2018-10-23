@@ -5,8 +5,16 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavigationComponent} from './navigation/navigation.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import {MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
-import {MatSlideToggleModule, MatMenuModule, MatGridListModule, MatExpansionModule} from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatButtonToggleModule,
+  MatTableModule, MatDialogModule
+} from '@angular/material';
+import {MatSlideToggleModule, MatMenuModule, MatGridListModule, MatExpansionModule, MatTabsModule} from '@angular/material';
 import {ThemePickerComponent} from './theme-picker/theme-picker.component';
 import {StyleManager} from './theme-picker/style-manager.service';
 import {ThemeStorage} from './theme-picker/theme-storage/theme-storage.service';
@@ -19,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ChampionDetailComponent} from './champion-detail/champion-detail.component';
 
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
+import { SpellDetailDialogComponent } from './spell-detail-dialog/spell-detail-dialog.component';
 
 
 
@@ -32,6 +41,7 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
     GameinfoComponent,
     ChampionsComponent,
     ChampionDetailComponent,
+    SpellDetailDialogComponent,
   ],
   imports: [
     HttpClientModule,
@@ -49,7 +59,11 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
     AppRoutingModule,
     MatCardModule,
     MatExpansionModule,
-    ScrollDispatchModule
+    ScrollDispatchModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatTableModule,
+    MatDialogModule,
   ],
   providers: [
     ThemeStorage,
@@ -58,6 +72,9 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
       provide: LOCALE_ID,
       useValue: 'zh-Hans'
     }
+  ],
+  entryComponents: [
+    SpellDetailDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,96 @@
+<div class="detail-page">
+  <header class="detail-header mat-elevation-z4" [ngStyle]="{'background-image': backgroundurl}">
+    <div class="detail-img">
+      <img class="img-circle" alt="英雄头像" src="{{iconurl}}">
+    </div>
+    <div class="detail-title">
+      <mat-card-subtitle class="detail-champion-name">{{champion.name}}</mat-card-subtitle>
+      <mat-card-title class="detail-champion-title">{{champion.title}}</mat-card-title>
+    </div>
+    <div class="detail-info">
+      <ul class="list-unstyled">
+        <li>英雄类型：{{champion.tags}}</li>
+        <li>技能消耗槽：{{champion.partype}}</li>
+      </ul>
+    </div>
+  </header>
+  <div>
+    <mat-tab-group mat-stretch-tabs class="detail-tabs mat-elevation-z4" [backgroundColor]="primary" [color]="accent"
+                   [dynamicHeight]="true">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">person</mat-icon>
+          初始属性
+        </ng-template>
+        <ng-template matTabContent>
+          <mat-table [dataSource]="ELEMENT_DATA" class="mat-elevation-z8">
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.position}}</mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> 初始属性</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="value">
+              <mat-header-cell *matHeaderCellDef> 初始值</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.value}}</mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="levelvalue">
+              <mat-header-cell *matHeaderCellDef> 每级增长</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.levelvalue}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">games</mat-icon>
+          英雄技能
+        </ng-template>
+        <ng-template matTabContent>
+          <mat-card>
+            <mat-card-header>
+              <img mat-card-avatar class="example-header-image"
+                   src="http://localhost:4200/lol/8.20.1/img/passive/{{champion.passive.image.full}}">
+              <mat-card-title>{{champion.passive.name}}</mat-card-title>
+              <mat-card-subtitle>被动技能</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>{{champion.passive.description}}</mat-card-content>
+          </mat-card>
+          <mat-card *ngFor="let i of [0,1,2,3]" >
+            <mat-card-header>
+              <img mat-card-avatar class="example-header-image"
+                   src="http://localhost:4200/lol/8.20.1/img/spell/{{champion.spells[i].image.full}}">
+              <mat-card-title>{{champion.spells[i].name}}</mat-card-title>
+              <mat-card-subtitle (click)="openDialog(i)" class="cursor">点击查看详细内容</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>{{champion.spells[i].description}}</mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">short_text</mat-icon>
+          英雄介绍
+        </ng-template>
+        <ng-template matTabContent>
+
+          <p class="detail-lore">{{champion.lore}}</p>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+</div>
