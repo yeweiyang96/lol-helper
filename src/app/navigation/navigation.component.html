@@ -1,9 +1,9 @@
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="side-nav-container">
 
   <mat-sidenav
     #drawer
-    class="sidenav"
+    class="side-nav"
     fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -12,7 +12,7 @@
     <mat-toolbar color="primary">英雄指南</mat-toolbar>
     <div class="component-viewer-nav">
       <nav class="nav-item" routerLink="/首页">
-        <button class="nav-content-btn">首页
+        <button class="nav-content-btn"><span>首页</span>
           <mat-icon class="rotating-icon"
                     role="img" svgicon="keyboard_arrow_right" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">
@@ -22,7 +22,7 @@
         </button>
       </nav>
       <nav class="nav-item">
-        <button class="nav-content-btn" (click)="selectChange()">资料库
+        <button class="nav-content-btn" (click)="selectChange()"><span>资料库</span>
           <mat-icon class="rotating-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"
                     [class]="select ? 'mat-icon rotating-icon expanded' : 'mat-icon rotating-icon collapsed'">
             <svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24">

@@ -1,20 +1,16 @@
-import {Component, Inject, OnInit, AfterViewInit, ElementRef, Renderer2, ViewChild} from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
-import {Spells} from '../pojo/champion/spells/spells';
+import {Component, Inject, OnInit} from '@angular/core';
+import { MAT_DIALOG_DATA} from '@angular/material';
+import {Spells} from '../../pojo/champion/spells/spells';
 
 @Component({
   selector: 'app-spell-detail-dialog',
   templateUrl: './spell-detail-dialog.component.html',
   styleUrls: ['./spell-detail-dialog.component.scss']
 })
-export class SpellDetailDialogComponent implements OnInit, AfterViewInit {
-  @ViewChild('tooltip')
-  tooltip: ElementRef;
+export class SpellDetailDialogComponent implements OnInit {
   tooltipContent: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Spells,
-              private elementRef: ElementRef,
-              private renderer: Renderer2) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Spells) {
   }
 
   ngOnInit() {
@@ -32,10 +28,6 @@ export class SpellDetailDialogComponent implements OnInit, AfterViewInit {
       e10: this.data.effect[10],
       a1: '35',
     });
-  }
-
-  ngAfterViewInit() {
-
   }
 // 字符串正则表达式匹配替换
   templateEngine(source: string, data) {

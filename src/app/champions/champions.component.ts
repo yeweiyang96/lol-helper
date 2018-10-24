@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Championjson} from '../pojo/championjson';
-import {Hero} from '../pojo/champions/hero';
+import {Championjson} from '../../pojo/championjson';
+import {Hero} from '../../pojo/champions/hero';
 import {ChampionsService} from '../champions.service';
 import {ViewportRuler} from '@angular/cdk/scrolling';
 

@@ -12,7 +12,7 @@ import {MatSidenav} from '@angular/material';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-  @ViewChild('drawer') drawer: MatSidenav; // 这个bug我不懂，原本好好的，加了些东西后坏了，非要加这句话才能好。
+  @ViewChild('drawer') drawer: MatSidenav;
   select = false;
   style = 'collapsed';
 

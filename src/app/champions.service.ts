@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Championjson} from './pojo/championjson';
+import {Championjson} from '../pojo/championjson';
 
 
 const httpOptions = {
