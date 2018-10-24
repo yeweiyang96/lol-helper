@@ -44,7 +44,7 @@ export class ThemePickerComponent {
     public styleManager: StyleManager,
     private _themeStorage: ThemeStorage
   ) {
-    const currentTheme = this._themeStorage.getStoredTheme();
+    const currentTheme = ThemeStorage.getStoredTheme();
     if (currentTheme) {
       this.installTheme(currentTheme);
     }

@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { StyleManagerService } from './style-manager.service';
+import {StyleManager} from './style-manager.service';
 
 describe('StyleManagerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [StyleManagerService]
+      providers: [StyleManager]
     });
   });
 
-  it('should be created', inject([StyleManagerService], (service: StyleManagerService) => {
+  it('should be created', inject([StyleManager], (service: StyleManager) => {
     expect(service).toBeTruthy();
   }));
 });

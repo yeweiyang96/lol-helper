@@ -1,15 +1,15 @@
 import {TestBed, inject} from '@angular/core/testing';
 
-import {ThemeStorageService} from './theme-storage.service';
+import {ThemeStorage} from './theme-storage.service';
 
 describe('ThemeStorageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ThemeStorageService]
+      providers: [ThemeStorage]
     });
   });
 
-  it('should be created', inject([ThemeStorageService], (service: ThemeStorageService) => {
+  it('should be created', inject([ThemeStorage], (service: ThemeStorage) => {
     expect(service).toBeTruthy();
   }));
 });
