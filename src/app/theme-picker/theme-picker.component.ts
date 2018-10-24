@@ -41,10 +41,10 @@ export class ThemePickerComponent {
   ];
 
   constructor(
-    public styleManager: StyleManager,
+    // private _styleManager: StyleManager,
     private _themeStorage: ThemeStorage
   ) {
-    const currentTheme = ThemeStorage.getStoredTheme();
+    const currentTheme = this._themeStorage.getStoredTheme();
     if (currentTheme) {
       this.installTheme(currentTheme);
     }
